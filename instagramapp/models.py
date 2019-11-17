@@ -44,4 +44,9 @@ class Profile(models.Model):
     @classmethod
     def search_profile(cls, name):
         return cls.objects.filter(user__username__icontains=name).all()
- 
+class Post(models.Model):
+        image = models.ImageField(upload_to='posts/')
+    name = models.CharField(max_length=250, blank=True)
+    caption = models.CharField(max_length=250, blank=True)
+    likes = models.ManyToManyField(User, related_name='likes', blank=True, )
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='posts')
