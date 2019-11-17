@@ -73,4 +73,73 @@ def profile(request, username):
         'user_form': user_form,
         'prof_form': prof_form,
         'images': images,
+}
+    return render(request, 'insta/profile.html', locals())
+
+
+@login_required(login_url='login')
+def user_profile(request, username):
+    user_prof = get_object_or_404(User, username=username)
+    if request.user == user_prof:
+        return redirect('profile', username=request.user.username)
+    user_posts = user_prof.profile.posts.all()
+
+    params = {
+        'user_prof': user_prof,
+        'user_posts': user_posts
+    }
+    return render(request, 'insta/profile_data.html', locals())
+
+
+@login_required(login_url='login')
+def post_comment(request, id):
+    image = get_object_or_404(Post, pk=id)
+    is_liked = False
+    if image.likes.filter(id=request.user.id).exists():
+        is_liked = True
+    if request.method == 'Post':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            savecomment = form.save(commit=False)
+            savecomment.post = image
+            savecomment.user = request.user.profile
+            savecomment.save()
+            return HttpResponseRedirect(request.path_info)
+    else:
+        form = CommentForm()
+    params = {
+        'image': image,
+        'form': form,
+        'is_liked': is_liked,
+        'total_likes': image.total_likes()
+    }
+    return render(request, 'insta/post_view.html', locals())
+
+
+def like_post(request):
+    image = get_object_or_404(Post, id=request.POST.get('image_id'))
+    is_liked = False
+    if image.likes.filter(id=request.user.id).exists():
+        image.likes.remove(request.user)
+        is_liked = False
+    else:
+        image.likes.add(request.user)
+        is_liked = False
+    return redirect('comment', id=image.id)
+
+
+@login_required(login_url='login')
+def search_profile(request):
+    if 'search_user' in request.GET and request.GET['search_user']:
+        name = request.GET.get("search_user")
+        results = Profile.search_profile(name)
+        message = f'name'
+        params = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'insta/search_results.html', locals())
+    else:
+        message = "You haven't searched for any image category"
+    return render(request, 'insta/search_results.html', locals())
  
