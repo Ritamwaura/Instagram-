@@ -50,3 +50,10 @@ class Post(models.Model):
     caption = models.CharField(max_length=250, blank=True)
     likes = models.ManyToManyField(User, related_name='likes', blank=True, )
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='posts')
+    
+    class Meta:
+        db_table = 'posts'
+
+    @property
+    def get_all_comments(self):
+        return self.comments.all()
