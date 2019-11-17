@@ -57,3 +57,21 @@ class Post(models.Model):
     @property
     def get_all_comments(self):
         return self.comments.all()
+    
+     @property
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def get_all_posts(cls):
+        return cls.objects.all()
+    @property
+    def delete(self):
+        self.delete()
+
+    def total_likes(self):
+        return self.likes.count()
+
+    def __str__(self):
+        return f'{self.user.name} Post'
+
