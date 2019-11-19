@@ -37,6 +37,7 @@ The application allows users to sign up, upload pictures,view other user's pictu
 <li>Run the app using this command: python3.7 manage.py runserver on the terminal.You can then open the app on your browser</li>
 </ul>  v
 
+
 ### Technologies Used
 <ul>
 <li>Python 3.7</li>
