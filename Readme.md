@@ -39,6 +39,7 @@ The application allows users to sign up, upload pictures,view other user's pictu
 </ul>  
 
 ### Technologies Used
+
 <ul>
 <li>Python 3.7</li>
 <li>Django</li>
