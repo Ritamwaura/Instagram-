@@ -53,4 +53,5 @@ The application allows users to sign up, upload pictures,view other user's pictu
 For more information, questions, or feedback, get in touch with me on - 
 email:,mwaurarita2019@gmail.com
 ### Licence
+
 Copyright(c) 2019Rita mwaura
