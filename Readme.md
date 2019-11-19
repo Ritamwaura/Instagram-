@@ -49,6 +49,7 @@ The application allows users to sign up, upload pictures,view other user's pictu
 </ul>
 
 ### Support and Contact Details
+
 For more information, questions, or feedback, get in touch with me on - 
 email:,mwaurarita2019@gmail.com
 ### Licence
