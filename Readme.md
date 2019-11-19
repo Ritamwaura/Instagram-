@@ -36,7 +36,7 @@ The application allows users to sign up, upload pictures,view other user's pictu
 <li>Create a database: psql then create the databse using this command: CREATE DATABASE     database-name </li>
 <li>Run migrations using these respective commmands: python3.7 manage.py makemigrations images then: python3.7 manage.py migrate</li>
 <li>Run the app using this command: python3.7 manage.py runserver on the terminal.You can then open the app on your browser</li>
-</ul>  v
+</ul>  
 
 ### Technologies Used
 <ul>
