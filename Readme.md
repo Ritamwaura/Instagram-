@@ -8,7 +8,6 @@ The application allows users to sign up, upload pictures,view other user's pictu
 
 ### BDD SPECIFICATIONS
 
-
 |   User Requirements     |           Input                                 |           Output                            |
 |-------------------------|-------------------------------------------------|---------------------------------------------|
 | Sign up/Login           | To sign up, click on the sign up link and fill  | If login is successful, user is navigated to|
