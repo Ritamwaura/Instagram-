@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+<!-- -->
+{% block content %} {% if user.is_authenticated %}
+<!--Left side of the posts-->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Padding left -->
+        <div class="col-sm-1"></div>
+        <!-- End padding -->
+
+        <div class="col-sm-6">
+            <!-- The post itself-->
+            <div class="posts card">
+                <!-- Post header-->
+                <div class="posts-header row">
+                    <img src="" class="col-sm-10 rounded-img" alt="pic">
+                    <img src="" class="col-sm-2" alt="dots">
+                </div>
+                <!-- Post image -->
+                <div class="post-image col-sm-12">
+                    <img src="" class="" alt="post">
+                </div>
+                <!-- Icons under the posts -->
+                <div class="like-icons mt-5">
+
+                </div>
+                <!-- Additional info-->
+                <p class="likes">2 likes</p>
+                <p class="caption">post caption</p>
+                <p class="time-posted"> 4hrs ago</p>
+                <div class="comment">comment here....</div>
+                <!-- End post -->
+            </div>
+        </div>
+
+        <!-- -->
+        <!-- Left side of the posts -->
+        <div class="col-sm-4">
+            <!-- User profile section -->
+            <div class="user-info row card">
+                <img src="" alt="profile-ico" class="col-sm-6">
+                <div class="col-sm-6">
+                    <h6 class="text-center">{{ user.username }}</h6>
+                    <p class="text-center">{{ user.username }}</p>
+                </div>
+            </div>
+
+
+            <!-- Stories section -->
+            <div class="col-sm-12 mt-4 b-2 card">
+                <div class="row">
+                    <p class="col-sm-6">stories</p>
+                    <p class="col-sm-6">watch all</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Padding right -->
+        <div class="col-sm-1"></div>
+        <!-- End padding -->
+    </div>
+</div>
+<p><a href="/logout">Logout</a></p>
+{% else %}
+<p style="margin-top:60px;"><a href="/login">Login</a></p>
+<p><a href="/register">Register</a></p>
+{% endif %} {% endblock %}

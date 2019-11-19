@@ -1,0 +1,34 @@
+ {%load static%}
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145844223-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-145844223-1');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1"> {% block styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/nav.css' %}"> {% endblock %}
+</head>
+
+<body>
+    {% include 'navbar.html'%} {% block content %} {% endblock %}
+</body>
+{% block scripts %}
+<script src="{% static '/js/nav.js'%}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
+
+</html>
